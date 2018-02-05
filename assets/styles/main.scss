@@ -1,0 +1,174 @@
+---
+# Styles
+---
+
+$blue: rgb(34,62,73);
+$blue-transparent: rgba(34,62,73,0.9);
+
+$transition: 0.1s all ease-in-out;
+
+@mixin linear-gradient($from, $to) {
+  background: -moz-linear-gradient(top, $from 0%, $to 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, $from), color-stop(100%, $to));
+  background: -webkit-linear-gradient(top, $from 0%, $to 100%);
+  background: -o-linear-gradient(top, $from 0%, $to 100%);
+  background: -ms-linear-gradient(top, $from 0%, $to 100%);
+  background: linear-gradient(to bottom, $from 0%, $to 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#{$from}, endColorstr=${$to}, GradientType=0 );
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Lato, Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+header.main {
+  background: $blue-transparent;
+  color: #fff;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+
+  .top { 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    
+    .container {
+      padding: 5px 0;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+      color: rgba(255,255,255,0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      a {
+        display: inline-block;
+        opacity: 0.5;
+        transition: $transition;
+
+        &:hover,
+        &.active {
+          opacity: 1;
+        }
+      }
+    } 
+  }
+
+  .bottom .container {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  } 
+
+  nav {
+    a {
+      color: #fff;
+      text-decoration: none;
+      display: inline-block;
+      padding: 6px 20px;
+      font-size: 14px;
+      letter-spacing: 0.2px;
+      // text-transform: uppercase;
+    }
+  }
+}
+
+.headline {
+  background: url('https://image.shutterstock.com/z/stock-photo-port-of-dubrovnik-from-the-old-city-walls-148995788.jpg') no-repeat 50% 10%;
+  background-size: cover;
+  position: relative;
+  
+  .container {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: bottom;
+    justify-content: flex-end;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+
+    h1 {
+      font-size: 50px;
+      letter-spacing: 0.5px;
+      color: #fff;
+      position: relative;
+      z-index: 3;
+      padding: 30px;
+      font-weight: 400;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30vh;
+    background-color: transparent;
+    @include linear-gradient(rgba(255,255,255,0), #000);
+  }
+}
+
+.featured {
+  background: #fafafa;
+  margin-top: -100px;
+
+  h2 {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .featured-trips {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+  }
+
+  .featured-trip {
+    padding: 10px;
+    background: #fff;
+    width: calc(33% - 80px);
+    margin: 20px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.12);
+
+    img {
+      width: 100%;
+    }
+
+    h4 {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 10px 0;
+      color: #333;
+    }
+
+    p {
+      margin: 5px 0 15px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    a {
+      color: inherit;
+      font-size: 14px;
+    }
+  }
+}
